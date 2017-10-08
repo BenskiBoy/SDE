@@ -19,8 +19,9 @@
     $firstname = $_POST['firstname'];
     $lastname = $_POST['lastname'];
     $tyres = $_POST['tyres'];
-    $sql = "INSERT INTO Orders (firstname, lastname, noOftyres)
-    VALUES ('$firstname', '$lastname', '$tyres')";
+	$amount=$tyres*110;
+    $sql = "INSERT INTO Orders (firstname, lastname, noOftyres, Amount)
+    VALUES ('$firstname', '$lastname', '$tyres', '$amount')";
 
     if ($conn->query($sql) == TRUE) {
       echo "New record created successfully";
@@ -32,7 +33,7 @@
     //$conn->close();
      echo "<br>";
     echo $_POST["firstname"]." ".$_POST["lastname"].'<br/>';
-    echo "total amount due is: ".($_POST["tyres"]* 110).'<br/>';
+    echo "total amount due is: ".$amount.'<br/>';
 
     ?>
 </body>
